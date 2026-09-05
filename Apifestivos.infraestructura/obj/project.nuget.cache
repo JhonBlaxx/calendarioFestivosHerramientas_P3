@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "dgSpecHash": "NzA148475cQ=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Apifestivos.infraestructura\\Apifestivos.infraestructura.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.EntityFrameworkCore. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "projectPath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Apifestivos.infraestructura\\Apifestivos.infraestructura.csproj",
+      "filePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Apifestivos.infraestructura\\Apifestivos.infraestructura.csproj",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.EntityFrameworkCore.SqlServer. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "projectPath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Apifestivos.infraestructura\\Apifestivos.infraestructura.csproj",
+      "filePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Apifestivos.infraestructura\\Apifestivos.infraestructura.csproj",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

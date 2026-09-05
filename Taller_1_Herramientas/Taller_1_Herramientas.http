@@ -1,0 +1,6 @@
+@Taller_1_Herramientas_HostAddress = http://localhost:5102
+
+GET {{Taller_1_Herramientas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

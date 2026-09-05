@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "dgSpecHash": "/cpj+pnq/VE=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.AspNetCore.OpenApi. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "projectPath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+      "filePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+      "libraryId": "Microsoft.AspNetCore.OpenApi",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.EntityFrameworkCore. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "projectPath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+      "filePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.EntityFrameworkCore.SqlServer. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "projectPath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+      "filePath": "C:\\Users\\USER\\source\\repos\\Calendario_Festivos_HP_3\\Taller_1_Herramientas\\Taller_1_Herramientas.csproj",
+      "libraryId": "Microsoft.EntityFrameworkCore.SqlServer",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}
