@@ -1,31 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
+using apiFestivos.core.Interfaces.Servicios;
 using apiFestivos.dominio.Entidades;
-using apiFestivos.dominio.Interfaces;
 
-namespace Taller_1_Herramientas.Controllers
+namespace apiFestivos.presentacion.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class FestivoController : ControllerBase
     {
-        private readonly IFestivoRepositorio repositorio;
+        private readonly IFestivoServicio servicio;
 
-        public FestivoController(IFestivoRepositorio repositorio)
+        public FestivoController(IFestivoServicio servicio)
         {
-            this.repositorio = repositorio;
+            this.servicio = servicio;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var lista = await repositorio.ObtenerTodos();
+            var lista = await servicio.ObtenerTodos();
             return Ok(lista);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var festivo = await repositorio.ObtenerPorId(id);
+            var festivo = await servicio.ObtenerPorId(id);
             if (festivo == null)
             {
                 return NotFound();
@@ -36,14 +36,14 @@ namespace Taller_1_Herramientas.Controllers
         [HttpGet("pais/{idPais}")]
         public async Task<IActionResult> GetPorPais(int idPais)
         {
-            var lista = await repositorio.ObtenerPorPais(idPais);
+            var lista = await servicio.ObtenerPorPais(idPais);
             return Ok(lista);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(Festivo festivo)
         {
-            var creado = await repositorio.Crear(festivo);
+            var creado = await servicio.Crear(festivo);
             return Ok(creado);
         }
 
@@ -55,7 +55,7 @@ namespace Taller_1_Herramientas.Controllers
                 return BadRequest();
             }
 
-            var ok = await repositorio.Actualizar(festivo);
+            var ok = await servicio.Actualizar(festivo);
             if (!ok)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ namespace Taller_1_Herramientas.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var ok = await repositorio.Eliminar(id);
+            var ok = await servicio.Eliminar(id);
             if (!ok)
             {
                 return NotFound();

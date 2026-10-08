@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using apiFestivos.core.Interfaces.Repositorios;
 using apiFestivos.dominio.Entidades;
-using apiFestivos.dominio.Interfaces;
 using Apifestivos.infraestructura.Datos;
 
 namespace Apifestivos.infraestructura.Repositorios
@@ -29,29 +29,29 @@ namespace Apifestivos.infraestructura.Repositorios
             return await contexto.Festivos.Where(f => f.IdPais == idPais).ToListAsync();
         }
 
-        public async Task<Festivo> Crear(Festivo festivo)
+        public async Task<Festivo> Crear(Festivo entidad)
         {
-            contexto.Festivos.Add(festivo);
+            contexto.Festivos.Add(entidad);
             await contexto.SaveChangesAsync();
-            return festivo;
+            return entidad;
         }
 
-        public async Task<bool> Actualizar(Festivo festivo)
+        public async Task<bool> Actualizar(Festivo entidad)
         {
-            contexto.Festivos.Update(festivo);
+            contexto.Festivos.Update(entidad);
             var filas = await contexto.SaveChangesAsync();
             return filas > 0;
         }
 
         public async Task<bool> Eliminar(int id)
         {
-            var festivo = await contexto.Festivos.FindAsync(id);
-            if (festivo == null)
+            var entidad = await contexto.Festivos.FindAsync(id);
+            if (entidad == null)
             {
                 return false;
             }
 
-            contexto.Festivos.Remove(festivo);
+            contexto.Festivos.Remove(entidad);
             await contexto.SaveChangesAsync();
             return true;
         }

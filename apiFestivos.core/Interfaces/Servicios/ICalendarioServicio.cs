@@ -1,6 +1,6 @@
-using apiFestivos.dominio.Entidades;
+using apiFestivos.dominio.DTOs;
 
-namespace apiFestivos.dominio.Interfaces
+namespace apiFestivos.core.Interfaces.Servicios
 {
     public interface ICalendarioServicio
     {

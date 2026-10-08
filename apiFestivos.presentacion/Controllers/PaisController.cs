@@ -1,31 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
+using apiFestivos.core.Interfaces.Servicios;
 using apiFestivos.dominio.Entidades;
-using apiFestivos.dominio.Interfaces;
 
-namespace Taller_1_Herramientas.Controllers
+namespace apiFestivos.presentacion.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class PaisController : ControllerBase
     {
-        private readonly IPaisRepositorio repositorio;
+        private readonly IPaisServicio servicio;
 
-        public PaisController(IPaisRepositorio repositorio)
+        public PaisController(IPaisServicio servicio)
         {
-            this.repositorio = repositorio;
+            this.servicio = servicio;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var lista = await repositorio.ObtenerTodos();
+            var lista = await servicio.ObtenerTodos();
             return Ok(lista);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var pais = await repositorio.ObtenerPorId(id);
+            var pais = await servicio.ObtenerPorId(id);
             if (pais == null)
             {
                 return NotFound();
@@ -36,7 +36,7 @@ namespace Taller_1_Herramientas.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Pais pais)
         {
-            var creado = await repositorio.Crear(pais);
+            var creado = await servicio.Crear(pais);
             return Ok(creado);
         }
 
@@ -48,7 +48,7 @@ namespace Taller_1_Herramientas.Controllers
                 return BadRequest();
             }
 
-            var ok = await repositorio.Actualizar(pais);
+            var ok = await servicio.Actualizar(pais);
             if (!ok)
             {
                 return NotFound();
@@ -59,7 +59,7 @@ namespace Taller_1_Herramientas.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var ok = await repositorio.Eliminar(id);
+            var ok = await servicio.Eliminar(id);
             if (!ok)
             {
                 return NotFound();

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using apiFestivos.core.Interfaces.Repositorios;
 using apiFestivos.dominio.Entidades;
-using apiFestivos.dominio.Interfaces;
 using Apifestivos.infraestructura.Datos;
 
 namespace Apifestivos.infraestructura.Repositorios
@@ -24,29 +24,29 @@ namespace Apifestivos.infraestructura.Repositorios
             return await contexto.Tipos.FindAsync(id);
         }
 
-        public async Task<Tipo> Crear(Tipo tipo)
+        public async Task<Tipo> Crear(Tipo entidad)
         {
-            contexto.Tipos.Add(tipo);
+            contexto.Tipos.Add(entidad);
             await contexto.SaveChangesAsync();
-            return tipo;
+            return entidad;
         }
 
-        public async Task<bool> Actualizar(Tipo tipo)
+        public async Task<bool> Actualizar(Tipo entidad)
         {
-            contexto.Tipos.Update(tipo);
+            contexto.Tipos.Update(entidad);
             var filas = await contexto.SaveChangesAsync();
             return filas > 0;
         }
 
         public async Task<bool> Eliminar(int id)
         {
-            var tipo = await contexto.Tipos.FindAsync(id);
-            if (tipo == null)
+            var entidad = await contexto.Tipos.FindAsync(id);
+            if (entidad == null)
             {
                 return false;
             }
 
-            contexto.Tipos.Remove(tipo);
+            contexto.Tipos.Remove(entidad);
             await contexto.SaveChangesAsync();
             return true;
         }

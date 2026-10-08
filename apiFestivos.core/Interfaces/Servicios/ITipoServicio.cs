@@ -1,13 +1,13 @@
 using apiFestivos.dominio.Entidades;
 
-namespace apiFestivos.dominio.Interfaces
+namespace apiFestivos.core.Interfaces.Servicios
 {
-    public interface ITipoRepositorio
+    public interface ITipoServicio
     {
         Task<List<Tipo>> ObtenerTodos();
         Task<Tipo?> ObtenerPorId(int id);
-        Task<Tipo> Crear(Tipo tipo);
-        Task<bool> Actualizar(Tipo tipo);
+        Task<Tipo> Crear(Tipo entidad);
+        Task<bool> Actualizar(Tipo entidad);
         Task<bool> Eliminar(int id);
     }
 }

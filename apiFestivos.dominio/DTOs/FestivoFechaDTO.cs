@@ -1,4 +1,4 @@
-namespace apiFestivos.dominio.Entidades
+namespace apiFestivos.dominio.DTOs
 {
     public class FestivoFechaDTO
     {

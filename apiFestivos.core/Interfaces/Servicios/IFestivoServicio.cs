@@ -1,14 +1,14 @@
 using apiFestivos.dominio.Entidades;
 
-namespace apiFestivos.dominio.Interfaces
+namespace apiFestivos.core.Interfaces.Servicios
 {
-    public interface IFestivoRepositorio
+    public interface IFestivoServicio
     {
         Task<List<Festivo>> ObtenerTodos();
         Task<Festivo?> ObtenerPorId(int id);
         Task<List<Festivo>> ObtenerPorPais(int idPais);
-        Task<Festivo> Crear(Festivo festivo);
-        Task<bool> Actualizar(Festivo festivo);
+        Task<Festivo> Crear(Festivo entidad);
+        Task<bool> Actualizar(Festivo entidad);
         Task<bool> Eliminar(int id);
     }
 }

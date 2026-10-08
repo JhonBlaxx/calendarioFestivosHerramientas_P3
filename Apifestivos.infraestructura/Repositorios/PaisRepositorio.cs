@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using apiFestivos.core.Interfaces.Repositorios;
 using apiFestivos.dominio.Entidades;
-using apiFestivos.dominio.Interfaces;
 using Apifestivos.infraestructura.Datos;
 
 namespace Apifestivos.infraestructura.Repositorios
@@ -24,29 +24,29 @@ namespace Apifestivos.infraestructura.Repositorios
             return await contexto.Paises.FindAsync(id);
         }
 
-        public async Task<Pais> Crear(Pais pais)
+        public async Task<Pais> Crear(Pais entidad)
         {
-            contexto.Paises.Add(pais);
+            contexto.Paises.Add(entidad);
             await contexto.SaveChangesAsync();
-            return pais;
+            return entidad;
         }
 
-        public async Task<bool> Actualizar(Pais pais)
+        public async Task<bool> Actualizar(Pais entidad)
         {
-            contexto.Paises.Update(pais);
+            contexto.Paises.Update(entidad);
             var filas = await contexto.SaveChangesAsync();
             return filas > 0;
         }
 
         public async Task<bool> Eliminar(int id)
         {
-            var pais = await contexto.Paises.FindAsync(id);
-            if (pais == null)
+            var entidad = await contexto.Paises.FindAsync(id);
+            if (entidad == null)
             {
                 return false;
             }
 
-            contexto.Paises.Remove(pais);
+            contexto.Paises.Remove(entidad);
             await contexto.SaveChangesAsync();
             return true;
         }
