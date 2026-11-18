@@ -18,6 +18,16 @@ namespace apiFestivos.presentacion
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Angular", politica =>
+                {
+                    politica.WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                });
+            });
+
             builder.Services.AddDbContext<FestivosDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("FestivosConnection")));
 
@@ -36,6 +46,8 @@ namespace apiFestivos.presentacion
             app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
+
+            app.UseCors("Angular");
 
             app.UseAuthorization();
 
