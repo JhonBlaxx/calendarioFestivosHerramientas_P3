@@ -1,47 +1,47 @@
-# Calendario de Festivos - Herramientas de Programación III
+# Calendario de Festivos - Aplicación Angular
 
-API REST en .NET 9 con Entity Framework Core y SQL Server para consultar los días festivos de un país.
+Aplicación web hecha con Angular CLI que consume la API REST del proyecto `apiFestivos.presentacion`.
 
-## Trabajo realizado por
-- Johnatan Andres Lopez
+## Funcionalidades
 
-## Arquitectura
+- **Consulta**: validar si una fecha es festiva en un país y ver la lista de festivos de un año.
+- **Festivos**: crear, listar, editar y eliminar festivos (con filtro por país).
+- **Países**: crear, listar, editar y eliminar países.
+- **Tipos**: crear, listar, editar y eliminar los tipos de festivo.
 
-La solución (`apiFestivos.sln`) tiene 5 proyectos:
+## Requisitos
 
-| Proyecto | Qué contiene |
-|---|---|
-| `apiFestivos.dominio` | Entidades (Pais, Tipo, Festivo) y DTO |
-| `apiFestivos.core` | Interfaces de los repositorios y de los servicios |
-| `Apifestivos.infraestructura` | DbContext y repositorios con Entity Framework |
-| `apiFestivos.aplicacion` | Servicios con la lógica (CRUD, cálculo de fechas, `ServicioFechas`) |
-| `apiFestivos.presentacion` | Controladores, Swagger y configuración |
-
-## Base de datos
-
-En la carpeta `Scripts`:
-1. Ejecutar `DDL_Festivos.sql` (crea la base de datos y las tablas).
-2. Ejecutar `DML_Festivos.sql` (inserta tipos, países y festivos).
-
-La cadena de conexión está en `apiFestivos.presentacion/appsettings.json` (`FestivosConnection`).
+- Node.js 20.19 o superior (también sirven 22.12+ y 24+).
+- La API en ejecución en `https://localhost:7041` y la base de datos creada con los scripts de la carpeta `Scripts`.
+- Certificado de desarrollo de .NET confiable en el navegador. Si el navegador no deja conectar con la API, ejecutar una vez:
+  ```
+  dotnet dev-certs https --trust
+  ```
 
 ## Cómo ejecutar
 
-1. Abrir `apiFestivos.sln` en Visual Studio.
-2. Dejar `apiFestivos.presentacion` como proyecto de inicio y ejecutar.
-3. Swagger: https://localhost:7041/swagger/index.html
+```
+cd festivos-app
+npm install
+npm start
+```
 
-## Tipos de festivo
+Luego abrir http://localhost:4200
 
-1. Fijo.
-2. Se traslada al siguiente lunes.
-3. Basado en el domingo de pascua.
-4. Basado en el domingo de pascua y trasladado al siguiente lunes.
-5. Se traslada al siguiente viernes.
+## Configuración
 
-## Endpoints
+- La dirección de la API está en `src/app/config.ts`.
+- La API tiene habilitado CORS para `http://localhost:4200`.
 
-- CRUD: `api/pais`, `api/tipo`, `api/festivo` (además `api/festivo/pais/{idPais}`)
-- Verificar fecha: `GET api/calendario/verificar/{idPais}/{anio}/{mes}/{dia}`
-  - Responde `Es Festivo`, `No es festivo` o `Fecha No valida`
-- Festivos de un año: `GET api/calendario/festivos/{idPais}/{anio}`
+## Estructura
+
+```
+src/app
+├── consulta/   página de consulta de festivos
+├── festivos/   CRUD de festivos
+├── paises/     CRUD de países
+├── tipos/      CRUD de tipos de festivo
+├── services/   servicios que llaman a la API
+├── models.ts   interfaces (Pais, Tipo, Festivo)
+└── config.ts   URL de la API
+```

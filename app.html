@@ -1,0 +1,15 @@
+<header class="barra">
+  <div class="barra-contenido">
+    <span class="logo">{{ titulo }}</span>
+    <nav>
+      <a routerLink="/consulta" routerLinkActive="activo">Consulta</a>
+      <a routerLink="/festivos" routerLinkActive="activo">Festivos</a>
+      <a routerLink="/paises" routerLinkActive="activo">Países</a>
+      <a routerLink="/tipos" routerLinkActive="activo">Tipos</a>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor">
+  <router-outlet />
+</main>
